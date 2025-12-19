@@ -240,6 +240,25 @@
           </p>
         </div>
       </div>
+
+      <div class="contenedor-fila">
+        <div class="tarjeta tarjeta-amarilla">
+          <div class="titu">PIZARRA DIGITAL 🎨</div>
+
+          <div class="caja-canvas">
+            <canvas id="miPizarra" width="500" height="300"></canvas>
+          </div>
+
+          <div class="cajaButton">
+            <input
+              class="estiloBoton"
+              type="button"
+              value="BORRAR TODO"
+              onclick="borrarPizarra();"
+            />
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="utilitarios.js"></script>
@@ -247,5 +266,6 @@
     <script src="index.js"></script>
     <script src="eventos.js"></script>
     <script src="reloj.js"></script>
+    <script src="dibujo.js"></script>
   </body>
 </html>

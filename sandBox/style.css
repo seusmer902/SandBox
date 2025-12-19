@@ -61,6 +61,7 @@ body {
 .tarjeta-negra { background: linear-gradient(135deg, #232526 0%, #414345 100%); color: white}
 .tarjeta-gris-oscura { background: linear-gradient(135deg, #2c3e50 0%, #000000 100%); color: #00f260 }
 .tarjeta-azul-electrico { background: linear-gradient(135deg, #0575E6 0%, #021B79 100%); color: white }
+.tarjeta-amarilla { background: linear-gradient(135deg, #fce38a 0%, #f38181 100%); color: #333 }
 
 .tarjeta-gris { 
     background-color: #f8f9fa; 
@@ -448,4 +449,23 @@ textarea:focus {
     font-size: 1.1em;
     font-weight: normal;
     margin: 5px 0 0 0;
+}
+
+/* --- ESTILOS PARA LA PIZARRA (CANVAS) --- */
+.caja-canvas {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+/* --- ESTILOS PARA LA PIZARRA (CANVAS) --- */
+canvas {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    touch-action: none; 
+
+    /* AQUÍ ESTÁ EL CAMBIO MÁGICO */
+    /* Intenta cargar el pincel. Si falla, usa la cruz (crosshair) */
+    cursor: url('img/pincel.png') 0 24, crosshair; 
 }
