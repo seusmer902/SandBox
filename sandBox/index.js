@@ -1,4 +1,4 @@
-//indes.js
+// indes.js
 
 sumaNumeros = function () {
   let n1 = recuperarFloat("valorNumeros1");
@@ -6,7 +6,7 @@ sumaNumeros = function () {
 
   let suma = sumar(n1, n2);
 
-  let R = "RESULTADO:ㅤ";
+  let R = "RESULTADO:  ";
 
   let resultado = "RESULTADO: " + suma;
 
@@ -26,7 +26,7 @@ sumaLetras = function () {
 
   let suma = sumar(num1, num2);
 
-  let R = "RESULTADO:ㅤ";
+  let R = "RESULTADO:  ";
 
   let resultado = "RESULTADO: " + suma;
 
@@ -83,7 +83,7 @@ actualizarLargo = function (valor) {
 };
 
 accionGenerarPass = function () {
-  // a) Recuperamos qué largo quiere el usuario (usando tu función de utilitarios)
+  // a) Recuperamos que largo quiere el usuario (usando tu función de utilitarios)
   let largo = recuperarInt("largoPass");
 
   // b) Llamamos a la lógica (indes.js)
@@ -166,107 +166,7 @@ accionUsuarioRandom = async function () {
   }
 };
 
-// DETECTOR DE TECLAS
-document.addEventListener("keydown", function (evento) {
-  // 1. Capturamos los datos del evento
-  let tecla = evento.key; // Ej: "a", "Enter", " "
-  let codigo = evento.code; // Ej: "KeyA", "Enter", "Space"
-  let numero = evento.keyCode; // Ej: 65, 13, 32
-
-  // 2. Si es la barra espaciadora, el texto sale vacío, así que lo corregimos para que se lea
-  if (tecla === " ") {
-    tecla = "Espacio";
-  }
-
-  // 3. Mostramos en la pantalla (Interfaz)
-
-  // La tecla gigante
-  document.getElementById("teclaPresionada").innerText = tecla;
-
-  // Los detalles
-  document.getElementById("teclaValor").innerText = tecla;
-  document.getElementById("teclaCodigo").innerText = codigo;
-  document.getElementById("teclaNumero").innerText = numero;
-
-  // 4. EFECTO VISUAL EXTRA (Opcional)
-  // Cambiamos el borde de la caja gigante aleatoriamente al teclear
-  let colorRandom = Math.floor(Math.random() * 16777215).toString(16);
-  document.querySelector(".caja-tecla-gigante").style.borderColor =
-    "#" + colorRandom;
-});
-
-// RELOJ Y FECHA EN TIEMPO REAL
-actualizarReloj = function () {
-  // 1. Obtenemos la fecha actual del sistema
-  const ahora = new Date();
-
-  // --- PARTE A: EL RELOJ ---
-  let horas = ahora.getHours();
-  let minutos = ahora.getMinutes();
-  let segundos = ahora.getSeconds();
-
-  // Truco: Definir si es mañana, tarde o noche
-  let fase = "Madrugada";
-  if (horas >= 6 && horas < 12) fase = "Mañana";
-  else if (horas >= 12 && horas < 19) fase = "Tarde";
-  else if (horas >= 19) fase = "Noche";
-
-  // "Ceros a la izquierda": Si es 9, que se vea 09
-  // Usamos operador ternario (condicion ? verdadero : falso)
-  horas = horas < 10 ? "0" + horas : horas;
-  minutos = minutos < 10 ? "0" + minutos : minutos;
-  segundos = segundos < 10 ? "0" + segundos : segundos;
-
-  // Pintamos en el HTML
-  document.getElementById("relojDigital").innerText =
-    horas + ":" + minutos + ":" + segundos;
-  document.getElementById("faseDia").innerText = fase;
-
-  // --- PARTE B: LA FECHA ---
-  // Arrays para traducir los números a nombres
-  const diasSemana = [
-    "Domingo",
-    "Lunes",
-    "Martes",
-    "Miércoles",
-    "Jueves",
-    "Viernes",
-    "Sábado",
-  ];
-  const meses = [
-    "Enero",
-    "Febrero",
-    "Marzo",
-    "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosto",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre",
-  ];
-
-  let diaNombre = diasSemana[ahora.getDay()];
-  let diaNumero = ahora.getDate();
-  let mesNombre = meses[ahora.getMonth()];
-  let anio = ahora.getFullYear();
-
-  // Pintamos la fecha
-  document.getElementById("diaSemana").innerText = diaNombre;
-  document.getElementById("fechaCompleta").innerText =
-    diaNumero + " de " + mesNombre + " de " + anio;
-};
-
-// OPCIONAL: Cargar uno automáticamente al iniciar la página
-// (Puedes descomentar la línea de abajo si quieres que aparezca uno al entrar)
-// accionUsuarioRandom();
-
-//RELOG
-actualizarReloj();
-// "Ejecuta actualizarReloj cada 1000 milisegundos (1 segundo)"
-setInterval(actualizarReloj, 1000);
+/* --- AQUÍ BORRAMOS EL DETECTOR DE TECLAS Y EL RELOJ --- */
 
 //SUMAS
 agregarEventoEnter("valorNumeros1", sumaNumeros);
