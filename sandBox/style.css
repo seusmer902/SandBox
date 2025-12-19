@@ -59,6 +59,8 @@ body {
 .tarjeta-turquesa { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
 .tarjeta-roja { background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%); }
 .tarjeta-negra { background: linear-gradient(135deg, #232526 0%, #414345 100%); color: white}
+.tarjeta-gris-oscura { background: linear-gradient(135deg, #2c3e50 0%, #000000 100%); color: #00f260 }
+.tarjeta-azul-electrico { background: linear-gradient(135deg, #0575E6 0%, #021B79 100%); color: white }
 
 .tarjeta-gris { 
     background-color: #f8f9fa; 
@@ -399,4 +401,51 @@ textarea:focus {
 .info-tecla span {
     font-weight: bold;
     font-size: 1.2em;
+}
+
+
+/* --- ESTILOS PARA EL CENTRO DE TIEMPO --- */
+
+/* Diseño del Reloj */
+.caja-reloj {
+    text-align: center;
+    padding: 10px;
+}
+
+.caja-reloj h1 {
+    font-size: 3em;
+    margin: 0;
+    font-family: 'Courier New', monospace; /* Fuente tipo digital */
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px #00f260; /* Resplandor neón */
+}
+
+.caja-reloj p {
+    margin: 0;
+    font-size: 0.9em;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+}
+
+/* Diseño de la Fecha */
+.caja-fecha {
+    text-align: center;
+    padding: 10px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.1);
+}
+
+.caja-fecha h2 {
+    font-size: 2em;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.caja-fecha h3 {
+    font-size: 1.1em;
+    font-weight: normal;
+    margin: 5px 0 0 0;
 }

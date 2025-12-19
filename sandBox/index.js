@@ -195,9 +195,78 @@ document.addEventListener("keydown", function (evento) {
     "#" + colorRandom;
 });
 
+// RELOJ Y FECHA EN TIEMPO REAL
+actualizarReloj = function () {
+  // 1. Obtenemos la fecha actual del sistema
+  const ahora = new Date();
+
+  // --- PARTE A: EL RELOJ ---
+  let horas = ahora.getHours();
+  let minutos = ahora.getMinutes();
+  let segundos = ahora.getSeconds();
+
+  // Truco: Definir si es mañana, tarde o noche
+  let fase = "Madrugada";
+  if (horas >= 6 && horas < 12) fase = "Mañana";
+  else if (horas >= 12 && horas < 19) fase = "Tarde";
+  else if (horas >= 19) fase = "Noche";
+
+  // "Ceros a la izquierda": Si es 9, que se vea 09
+  // Usamos operador ternario (condicion ? verdadero : falso)
+  horas = horas < 10 ? "0" + horas : horas;
+  minutos = minutos < 10 ? "0" + minutos : minutos;
+  segundos = segundos < 10 ? "0" + segundos : segundos;
+
+  // Pintamos en el HTML
+  document.getElementById("relojDigital").innerText =
+    horas + ":" + minutos + ":" + segundos;
+  document.getElementById("faseDia").innerText = fase;
+
+  // --- PARTE B: LA FECHA ---
+  // Arrays para traducir los números a nombres
+  const diasSemana = [
+    "Domingo",
+    "Lunes",
+    "Martes",
+    "Miércoles",
+    "Jueves",
+    "Viernes",
+    "Sábado",
+  ];
+  const meses = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
+
+  let diaNombre = diasSemana[ahora.getDay()];
+  let diaNumero = ahora.getDate();
+  let mesNombre = meses[ahora.getMonth()];
+  let anio = ahora.getFullYear();
+
+  // Pintamos la fecha
+  document.getElementById("diaSemana").innerText = diaNombre;
+  document.getElementById("fechaCompleta").innerText =
+    diaNumero + " de " + mesNombre + " de " + anio;
+};
+
 // OPCIONAL: Cargar uno automáticamente al iniciar la página
 // (Puedes descomentar la línea de abajo si quieres que aparezca uno al entrar)
 // accionUsuarioRandom();
+
+//RELOG
+actualizarReloj();
+// "Ejecuta actualizarReloj cada 1000 milisegundos (1 segundo)"
+setInterval(actualizarReloj, 1000);
 
 //SUMAS
 agregarEventoEnter("valorNumeros1", sumaNumeros);
