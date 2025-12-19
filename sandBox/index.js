@@ -93,6 +93,11 @@ accionGenerarPass = function () {
   mostrarTextoEnCaja("txtPassword", claveNueva);
 };
 
+// ACCION HABLAR
+accionHablar = function () {
+  hablarTexto("textoParaHablar");
+};
+
 window.onload = function () {
   // 1. RECUPERAR VOLUMEN
   let volGuardado = recuperarDeMemoria("volumenUsuario");

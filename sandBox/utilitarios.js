@@ -135,3 +135,29 @@ guardarEnMemoria = function (clave, valor) {
 recuperarDeMemoria = function (clave) {
   return localStorage.getItem(clave);
 };
+
+// TEXT TO SPEECH (SÍNTESIS DE VOZ)
+hablarTexto = function (idTexto) {
+  let componente = document.getElementById(idTexto);
+
+  if (componente && componente.value !== "") {
+    // 1. Creamos el objeto "Utterance" (La frase a decir)
+    let mensaje = new SpeechSynthesisUtterance();
+
+    // 2. Le asignamos el texto
+    mensaje.text = componente.value;
+
+    // 3. Configuración opcional (Velocidad y Tono)
+    mensaje.volume = 1; // 0 a 1
+    mensaje.rate = 1; // 0.1 a 10 (Velocidad)
+    mensaje.pitch = 1; // 0 a 2 (Tono: 0 es grave, 2 es agudo)
+
+    // 4. Configurar idioma (intenta usar español si está disponible)
+    mensaje.lang = "es-ES";
+
+    // 5. ¡HABLAR!
+    window.speechSynthesis.speak(mensaje);
+  } else {
+    alert("¡Escribe algo para que pueda hablar!");
+  }
+};
