@@ -166,6 +166,35 @@ accionUsuarioRandom = async function () {
   }
 };
 
+// DETECTOR DE TECLAS
+document.addEventListener("keydown", function (evento) {
+  // 1. Capturamos los datos del evento
+  let tecla = evento.key; // Ej: "a", "Enter", " "
+  let codigo = evento.code; // Ej: "KeyA", "Enter", "Space"
+  let numero = evento.keyCode; // Ej: 65, 13, 32
+
+  // 2. Si es la barra espaciadora, el texto sale vacío, así que lo corregimos para que se lea
+  if (tecla === " ") {
+    tecla = "Espacio";
+  }
+
+  // 3. Mostramos en la pantalla (Interfaz)
+
+  // La tecla gigante
+  document.getElementById("teclaPresionada").innerText = tecla;
+
+  // Los detalles
+  document.getElementById("teclaValor").innerText = tecla;
+  document.getElementById("teclaCodigo").innerText = codigo;
+  document.getElementById("teclaNumero").innerText = numero;
+
+  // 4. EFECTO VISUAL EXTRA (Opcional)
+  // Cambiamos el borde de la caja gigante aleatoriamente al teclear
+  let colorRandom = Math.floor(Math.random() * 16777215).toString(16);
+  document.querySelector(".caja-tecla-gigante").style.borderColor =
+    "#" + colorRandom;
+});
+
 // OPCIONAL: Cargar uno automáticamente al iniciar la página
 // (Puedes descomentar la línea de abajo si quieres que aparezca uno al entrar)
 // accionUsuarioRandom();

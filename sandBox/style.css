@@ -58,6 +58,7 @@ body {
 .tarjeta-naranja { background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%); }
 .tarjeta-turquesa { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
 .tarjeta-roja { background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%); }
+.tarjeta-negra { background: linear-gradient(135deg, #232526 0%, #414345 100%); color: white}
 
 .tarjeta-gris { 
     background-color: #f8f9fa; 
@@ -355,4 +356,47 @@ textarea {
 textarea:focus {
     border-color: #a18cd1; /* Color morado al escribir */
     box-shadow: 0 0 8px rgba(161, 140, 209, 0.5);
+}
+
+/* --- ESTILOS PARA EL DETECTOR DE TECLAS --- */
+
+.caja-tecla-gigante {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px 0;
+    text-align: center;
+    border: 2px solid #555;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8); /* Sombra interna */
+}
+
+.caja-tecla-gigante h1 {
+    font-size: 4em; /* ¡Gigante! */
+    margin: 0;
+    color: #fff;
+    text-shadow: 0 0 10px white; /* Brillo neón blanco */
+    font-family: 'Courier New', monospace;
+}
+
+.info-tecla {
+    display: flex;
+    justify-content: space-around; /* Separa los elementos */
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 1.1em;
+}
+
+.info-tecla p {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.info-tecla span {
+    font-weight: bold;
+    font-size: 1.2em;
 }

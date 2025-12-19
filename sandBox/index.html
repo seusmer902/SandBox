@@ -13,7 +13,6 @@
       <div class="contenedor-fila">
         <div class="tarjeta tarjeta-morada">
           <div class="titu">SINTETIZADOR DE VOZ 🤖</div>
-
           <div class="cajatxt">
             <textarea
               id="textoParaHablar"
@@ -21,7 +20,6 @@
               rows="3"
             ></textarea>
           </div>
-
           <div class="cajaButton">
             <input
               class="estiloBoton"
@@ -198,6 +196,31 @@
               onclick="accionUsuarioRandom();"
             />
           </div>
+        </div>
+      </div>
+
+      <div class="contenedor-fila">
+        <div class="tarjeta tarjeta-negra">
+          <div class="titu">MONITOR DE EVENTOS ⌨️</div>
+          <div class="caja-tecla-gigante">
+            <h1 id="teclaPresionada">?</h1>
+          </div>
+          <div class="info-tecla">
+            <p>
+              Key (Valor): <span id="teclaValor" style="color: #00ff00">-</span>
+            </p>
+            <p>
+              Code (Ubicación):
+              <span id="teclaCodigo" style="color: #ff00de">-</span>
+            </p>
+            <p>
+              KeyCode (Numérico):
+              <span id="teclaNumero" style="color: #00eaff">-</span>
+            </p>
+          </div>
+          <p style="font-size: 0.8em; opacity: 0.6; margin-top: 10px">
+            Presiona cualquier tecla...
+          </p>
         </div>
       </div>
     </div>
