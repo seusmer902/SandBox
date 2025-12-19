@@ -1,0 +1,339 @@
+/* style.css
+
+/* Reset básico para que se vea bien en todos lados */
+body {
+    background-color: #eef2f3; /* Color inicial suave */
+    font-family: 'Segoe UI', sans-serif; /* Fuente moderna */
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    transition: background-color 0.5s; /* Animación suave al cambiar color */
+}
+
+/* El Contenedor Principal */
+.cajaPrincipal {
+    background-color: white;
+    width: 100%;
+    max-width: 800px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Sombra elegante */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espacio entre filas */
+    transition: background-color 0.5s;
+}
+
+.titulo-principal {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Sistema de Rejilla (Filas) */
+.contenedor-fila {
+    display: flex;
+    flex-wrap: wrap; /* Si no caben, bajan */
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Diseño de Tarjetas (Cards) */
+.tarjeta {
+    flex: 1; /* Ocupan el mismo ancho */
+    min-width: 250px;
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Colores de las tarjetas (Degradados) */
+.tarjeta-azul { background: linear-gradient(135deg, #00c6ff, #0072ff); }
+.tarjeta-morada { background: linear-gradient(135deg, #a18cd1, #fbc2eb); color: #444; } /* Letra oscura para contraste */
+.tarjeta-verde { background: linear-gradient(135deg, #84fab0, #8fd3f4); color: #333; }
+.tarjeta-naranja { background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%); }
+.tarjeta-turquesa { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+.tarjeta-roja { background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%); }
+
+.tarjeta-gris { 
+    background-color: #f8f9fa; 
+    color: #333; 
+    border: 2px solid #ddd;
+}
+
+/* Estilos de Texto y Botones */
+.titu {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.cajatxt input, .estiloBoton {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    border: none;
+    width: 80%;
+    text-align: center;
+}
+
+/* El estilo visual del botón */
+.estiloBoton {
+    background-color: white; /* Fondo blanco */
+    color: #333;             /* Letra oscura para contraste */
+    
+    /* TAMAÑO Y FORMA */
+    width: auto;             /* Que el ancho se ajuste al texto (no forzado al 80%) */
+    min-width: 150px;        /* Pero que tenga un tamaño mínimo decente */
+    padding: 12px 25px;      /* Espacio interno (Relleno) */
+    border-radius: 50px;     /* ¡Bordes muy redondos! (Forma de píldora) */
+    
+    /* DETALLES */
+    border: none;            /* Sin borde feo */
+    font-weight: bold;       /* Letra gruesa */
+    font-size: 16px;         /* Letra legible */
+    cursor: pointer;         /* Manito al pasar el mouse */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* Sombrita para que parezca botón 3D */
+    transition: all 0.3s ease; /* Animación suave */
+}
+
+/* Contenedor del botón para que se centre perfectamente */
+.cajaButton {
+    width: 100%;             /* Que ocupe todo el ancho disponible */
+    display: flex;           /* Usamos flex para centrar */
+    justify-content: center; /* Centrado horizontal */
+    margin-top: 10px;        /* Un poco de aire arriba */
+    margin-bottom: 10px;     /* Un poco de aire abajo */
+}
+
+/* Efecto al pasar el mouse por encima (Hover) */
+.estiloBoton:hover {
+    transform: translateY(-3px); /* El botón "flota" hacia arriba */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* La sombra crece */
+    background-color: #f0f0f0; /* Un gris muy sutil */
+}
+
+/* Efecto al hacer clic (Active) */
+.estiloBoton:active {
+    transform: translateY(1px); /* El botón se hunde */
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2); /* Sombra pequeña */
+}
+
+.resultado {
+    margin: 15px 0;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Input Color Grande */
+input[type="color"] {
+    width: 60px;
+    height: 60px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    color: #333;
+    cursor: pointer;
+    width: 90%; /* Ajuste de ancho */
+}
+
+/* --- ESTILOS PARA EL VISOR DE IMÁGENES --- */
+
+/* 1. El recuadro (marco) que limita el tamaño */
+.marco-imagen {
+    margin-top: 15px;
+    width: 100%;         /* Ancho completo de la tarjeta */
+    height: 250px;       /* ALTO FIJO: Aquí está el truco */
+    
+    /* Diseño del marco */
+    background-color: rgba(255, 255, 255, 0.2); 
+    border-radius: 10px;
+    border: 2px dashed rgba(255, 255, 255, 0.5); /* Borde punteado bonito */
+    
+    /* Centrar la imagen dentro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Corta lo que se salga */
+}
+
+/* 2. La imagen en sí misma */
+#vistaPrevia {
+    max-width: 100%;     /* No más ancha que el marco */
+    max-height: 100%;    /* No más alta que el marco */
+    object-fit: contain; /* AJUSTE MAGICO: Se ve completa sin estirarse */
+    display: none;       /* Se oculta si no hay foto cargada */
+}
+
+/* Botones pequeños para los filtros */
+.btnFiltro {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid white;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: 0.3s;
+}
+
+.btnFiltro:hover {
+    background-color: white;
+    color: #333;
+}
+
+/* --- ESTILOS PARA EL SCROLL INFINITO --- */
+
+/* 2. La "Ventana" (tag-list) */
+.tag-list {
+    width: 100%; /* Ocupa todo el ancho de la tarjeta */
+    max-width: 400px; /* Evita que sea excesivamente ancha */
+    overflow: hidden; /* IMPORTANTE: Lo que se salga de aquí, no se ve */
+    mask-image: linear-gradient(90deg, transparent, white 20%, white 80%, transparent); /* Efecto desvanecido en bordes (Opcional pero bonito) */
+}
+
+/* 3. La Cinta que se mueve (inner) */
+.inner {
+    display: flex;
+    width: fit-content; /* El ancho se ajusta al contenido */
+    gap: 1rem; /* Espacio entre etiquetas */
+    /* Aquí ocurre la magia: */
+    animation: loop 10s linear infinite; 
+}
+
+/* 4. Estilo de cada etiqueta (tag) */
+.tag {
+    background-color: rgba(255, 255, 255, 0.2); /* Blanco semitransparente */
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    white-space: nowrap; /* Evita que el texto se rompa */
+}
+
+/* 5. La Animación (@keyframes) */
+@keyframes loop {
+    0% {
+        transform: translateX(0); /* Empieza en 0 */
+    }
+    100% {
+        /* Se mueve a la izquierda exactamente el 50% */
+        /* (Por eso necesitamos duplicar el contenido en el HTML) */
+        transform: translateX(-50%); 
+    }
+}
+
+/* Caja especial para mostrar la contraseña */
+.caja-resultado-password {
+    width: 90%;
+    margin: 15px 0;
+}
+
+.caja-resultado-password input {
+    width: 100%;
+    padding: 15px;
+    background-color: #333; /* Fondo oscuro */
+    color: #00ff00;         /* Letra verde hacker */
+    font-family: 'Courier New', monospace; /* Fuente de código */
+    font-size: 1.2em;
+    border: 2px solid #555;
+    border-radius: 10px;
+    text-align: center;
+    letter-spacing: 2px;    /* Espacio entre letras */
+}
+
+/* --- ESTILOS PARA LA SECCIÓN DE COPIAR --- */
+
+/* 1. El contenedor que pone el input y el botón lado a lado */
+.contenedor-pass-copy {
+    width: 90%;
+    margin: 15px 0;
+    display: flex; /* Esto hace que se pongan en fila */
+    gap: 10px;     /* Espacio entre el input y el botón */
+}
+
+/* 2. Ajuste para el Input de Password existente */
+/* Usamos 'flex: 1' para que el input ocupe todo el espacio sobrante */
+.contenedor-pass-copy input {
+    flex: 1; 
+    padding: 15px;
+    background-color: #333;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 1.2em;
+    border: 2px solid #555;
+    border-radius: 10px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+/* 3. Estilo del Botón de Copiar */
+.btn-copiar {
+    background-color: #333; /* Fondo oscuro */
+    border: 2px solid #555; /* Borde gris */
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.5em;       /* Icono grande */
+    padding: 0 15px;        /* Ancho cómodo para el dedo/mouse */
+    transition: all 0.3s ease;
+}
+
+/* Efecto al pasar el mouse (Se pone verde hacker) */
+.btn-copiar:hover {
+    background-color: #00ff00;
+    color: #000;            /* El icono se vuelve negro para contraste */
+    border-color: #00ff00;
+    transform: scale(1.05); /* Crece un poquito */
+}
+
+/* Efecto al hacer clic */
+.btn-copiar:active {
+    transform: scale(0.95); /* Se encoge un poquito */
+}
+
+/* --- ESTILOS PARA PERFIL DE USUARIO (API) --- */
+
+.marco-perfil {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.marco-perfil img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* ESTO lo hace redondo (Círculo perfecto) */
+    border: 4px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    object-fit: cover;
+}
+
+.info-perfil {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.info-perfil h3 {
+    margin: 5px 0;
+    font-size: 1.4em;
+    text-transform: capitalize; /* Pone mayúsculas automáticas */
+}
+
+.info-perfil p {
+    margin: 2px 0;
+    font-size: 0.9em;
+    opacity: 0.9;
+}

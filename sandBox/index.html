@@ -1,0 +1,186 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <title>Mi Sandbox JS</title>
+  </head>
+  <body>
+    <div class="cajaPrincipal" id="miCajaPrincipal">
+      <h1 class="titulo-principal">LABORATORIO JS</h1>
+
+      <div class="contenedor-fila">
+        <div class="tarjeta tarjeta-azul">
+          <div class="titu">SUMA NÚMEROS</div>
+          <div class="cajatxt">
+            <input id="valorNumeros1" type="number" placeholder="Num 1" />
+            <input id="valorNumeros2" type="number" placeholder="Num 2" />
+          </div>
+          <div id="resultadoNumeros" class="resultado">RESULTADO:ㅤ</div>
+          <div class="cajaButton">
+            <input
+              class="estiloBoton"
+              type="button"
+              value="CALCULAR"
+              onclick="sumaNumeros();"
+            />
+          </div>
+        </div>
+
+        <div class="tarjeta tarjeta-morada">
+          <div class="titu">SUMA LETRAS</div>
+          <div class="cajatxt">
+            <input id="valorLetras1" type="text" placeholder="Palabra 1" />
+            <input id="valorLetras2" type="text" placeholder="Palabra 2" />
+          </div>
+          <div id="resultadoLetras" class="resultado">RESULTADO:ㅤ</div>
+          <div class="cajaButton">
+            <input
+              class="estiloBoton"
+              type="button"
+              value="CONTAR"
+              onclick="sumaLetras();"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="contenedor-fila">
+        <div class="tarjeta tarjeta-verde">
+          <div class="titu">CONTROL VOLUMEN</div>
+          <div class="cajaVolumen">
+            <input id="volumen" type="range" min="0" max="100" value="0" />
+          </div>
+          <div id="%Volumen" class="resultado">VOLUMEN: 0</div>
+        </div>
+      </div>
+
+      <div class="contenedor-fila">
+        <div class="tarjeta tarjeta-gris">
+          <div class="titu">Fondo Página</div>
+          <p>Cambia el color de toda la ventana</p>
+          <input id="colorBody" type="color" value="#ffffff" />
+        </div>
+        <div class="tarjeta tarjeta-gris">
+          <div class="titu">Fondo Caja</div>
+          <p>Cambia el color de este contenedor</p>
+          <input id="colorCaja" type="color" value="#f0f0f0" />
+        </div>
+      </div>
+
+      <div class="contenedor-fila">
+        <div class="tarjeta tarjeta-naranja">
+          <div class="titu">VISOR DE IMAGEN</div>
+          <div class="cajatxt">
+            <input id="miInputArchivo" type="file" accept="image/*" />
+          </div>
+          <div class="marco-imagen">
+            <img id="vistaPrevia" src="" />
+          </div>
+          <div
+            id="panelControles"
+            style="display: none; width: 100%; margin-top: 15px"
+          >
+            <p id="infoArchivo" style="font-size: 0.9em; margin-bottom: 10px">
+              ...
+            </p>
+            <div style="display: flex; gap: 5px; justify-content: center">
+              <button class="btnFiltro" onclick="aplicarFiltro('gris')">
+                B/N
+              </button>
+              <button class="btnFiltro" onclick="aplicarFiltro('sepia')">
+                Sepia
+              </button>
+              <button class="btnFiltro" onclick="aplicarFiltro('invertir')">
+                X-Ray
+              </button>
+              <button class="btnFiltro" onclick="aplicarFiltro('normal')">
+                Normal
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contenedor-fila">
+        <div class="tarjeta tarjeta-turquesa">
+          <div class="titu">MIS SKILLS</div>
+          <div class="tag-list">
+            <div class="inner">
+              <div class="tag">HTML</div>
+              <div class="tag">CSS</div>
+              <div class="tag">JavaScript</div>
+              <div class="tag">UI/UX</div>
+              <div class="tag">GitHub</div>
+              <div class="tag">HTML</div>
+              <div class="tag">CSS</div>
+              <div class="tag">JavaScript</div>
+              <div class="tag">UI/UX</div>
+              <div class="tag">GitHub</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contenedor-fila">
+        <div class="tarjeta tarjeta-roja">
+          <div class="titu">PASSWORD GENERATOR</div>
+          <div class="cajatxt" style="flex-direction: column; gap: 5px">
+            <label>Longitud: <span id="valorLargo">10</span> caracteres</label>
+            <input id="largoPass" type="range" min="4" max="20" value="10" />
+          </div>
+          <div class="cajaButton">
+            <input
+              class="estiloBoton"
+              type="button"
+              value="GENERAR CLAVE"
+              onclick="accionGenerarPass();"
+            />
+          </div>
+          <div class="contenedor-pass-copy">
+            <input
+              id="txtPassword"
+              type="text"
+              readonly
+              placeholder="Click en Generar"
+            />
+            <button
+              class="btn-copiar"
+              onclick="copiarAlPortapapeles('txtPassword')"
+              title="Copiar"
+            >
+              📋
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="contenedor-fila">
+        <div class="tarjeta tarjeta-turquesa">
+          <div class="titu">PERFIL ALEATORIO</div>
+          <div class="marco-perfil">
+            <img id="imgPerfil" src="img/perfil.png" alt="Foto por defecto" />
+          </div>
+          <div class="info-perfil">
+            <h3 id="nombrePerfil">Nombre...</h3>
+            <p id="emailPerfil">correo@ejemplo.com</p>
+            <p id="paisPerfil">País</p>
+          </div>
+          <div class="cajaButton">
+            <input
+              class="estiloBoton"
+              type="button"
+              value="BUSCAR PERSONA"
+              onclick="accionUsuarioRandom();"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="utilitarios.js"></script>
+    <script src="indes.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
