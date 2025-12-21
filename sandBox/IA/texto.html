@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Olympus - Emociones</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <div class="cajaPrincipal" id="miCajaPrincipal">
+      <h1 class="titulo-principal">OLYMPUS TEXT v1.2 💬</h1>
+
+      <div
+        class="sub-menu-ia"
+        style="
+          display: flex;
+          justify-content: center;
+          gap: 15px;
+          margin: 20px 0;
+        "
+      >
+        <a
+          href="IA.html"
+          class="boton-nav"
+          style="background: #ddd; color: #666"
+          >🎨 COLORES</a
+        >
+        <a
+          href="texto.html"
+          class="boton-nav activo"
+          style="background: white; color: #c3073f; border: 2px solid #c3073f"
+          >💬 EMOCIONES</a
+        >
+      </div>
+
+      <div class="contenedor-fila">
+        <div class="tarjeta" style="flex: 1">
+          <div class="titu" style="color: #333">¿CÓMO TE SIENTES?</div>
+          <div class="cajatxt">
+            <textarea
+              id="entradaTexto"
+              rows="4"
+              placeholder="Escribe algo aquí (ej: Estoy muy feliz hoy)..."
+              style="
+                width: 100%;
+                padding: 10px;
+                border-radius: 10px;
+                border: 2px solid #ccc;
+                font-family: sans-serif;
+              "
+            ></textarea>
+          </div>
+          <div class="cajaButton">
+            <input
+              class="estiloBoton"
+              type="button"
+              value="ANALIZAR EMOCIÓN"
+              onclick="analizarTexto()"
+            />
+          </div>
+        </div>
+
+        <div
+          class="tarjeta tarjeta-negra"
+          style="
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <div class="titu">LA IA DETECTA:</div>
+          <h2 id="resultadoEmocion" style="font-size: 3em">😐</h2>
+          <p id="detalleEmocion" style="color: #aaa">Esperando texto...</p>
+
+          <hr style="width: 100%; border-color: #333; margin: 15px 0" />
+
+          <p style="font-size: 0.8em; opacity: 0.7">¿Se equivocó? Corrígela:</p>
+          <div style="display: flex; gap: 10px">
+            <button
+              onclick="entrenarNuevaFrase('feliz')"
+              style="
+                background: #1b5e20;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                cursor: pointer;
+              "
+            >
+              ES FELIZ 😃
+            </button>
+            <button
+              onclick="entrenarNuevaFrase('triste')"
+              style="
+                background: #b71c1c;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                cursor: pointer;
+              "
+            >
+              ES TRISTE 😢
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="contenedor-fila">
+        <div class="tarjeta tarjeta-gris-oscura caja-logs">
+          <div class="titu">REGISTRO LINGÜÍSTICO 📜</div>
+          <div id="logs" class="log-output" style="height: 100px">
+            > Módulo de Texto Olympus iniciado...<br />
+          </div>
+
+          <div style="text-align: center; margin-top: 10px">
+            <button class="btn-reset" onclick="resetearCerebroTexto()">
+              ⚠️ OLVIDAR APRENDIZAJE
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../utilitarios.js"></script>
+    <script src="../menu.js"></script>
+    <script src="brain.js"></script>
+
+    <script src="ia_texto.js"></script>
+  </body>
+</html>
