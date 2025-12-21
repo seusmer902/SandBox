@@ -2,29 +2,111 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Cerebro IA 🧠</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyecto Olympus - Entrenamiento</title>
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
-    <nav class="menu-principal">
-      <div class="logo">IA</div>
-      <div class="enlaces">
-        <a href="../index.html" class="boton-nav">🧪 SANDBOX</a>
-        <a href="#" class="boton-nav activo">🧠 CEREBRO IA</a>
-      </div>
-    </nav>
-
-    <div class="cajaPrincipal">
-      <h1 class="titulo-principal">PROYECTO INTELIGENCIA ARTIFICIAL</h1>
+    <div class="cajaPrincipal" id="miCajaPrincipal">
+      <h1 class="titulo-principal">PROYECTO OLYMPUS v-10.01 ⚡</h1>
 
       <div class="contenedor-fila">
+        <div
+          class="tarjeta"
+          id="cajaMuestra"
+          style="
+            background-color: #000;
+            transition: 0.3s;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <div class="titu" style="color: inherit; border: none">
+            VISUALIZADOR
+          </div>
+          <h2 id="textoMuestra" style="color: white; font-size: 2em">
+            ¿Se lee bien?
+          </h2>
+          <p style="color: inherit; opacity: 0.8">
+            La IA cree que el texto debe ser: <b id="prediccionIA">...</b>
+          </p>
+        </div>
+
         <div class="tarjeta tarjeta-negra">
-          <div class="titu">ESTADO DEL SISTEMA</div>
-          <p>Esperando instrucciones...</p>
+          <div class="titu">PANEL DE ENTRENAMIENTO</div>
+
+          <div class="cajatxt">
+            <label>1. Elige un Color de Fondo:</label>
+            <input
+              type="color"
+              id="colorInput"
+              value="#000000"
+              oninput="actualizarColor()"
+            />
+          </div>
+
+          <hr style="border-color: #444; margin: 20px 0" />
+
+          <p style="margin-bottom: 10px">
+            2. Enséñale a Olympus: <br />¿Qué color de texto queda mejor?
+          </p>
+
+          <div
+            class="cajaButton"
+            style="display: flex; gap: 10px; justify-content: center"
+          >
+            <input
+              class="estiloBoton"
+              type="button"
+              value="TEXTO NEGRO"
+              onclick="entrenar('negro')"
+              style="background: black; color: white; border: 1px solid #555"
+            />
+
+            <input
+              class="estiloBoton"
+              type="button"
+              value="TEXTO BLANCO"
+              onclick="entrenar('blanco')"
+              style="background: white; color: black"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="contenedor-fila">
+        <div
+          class="tarjeta tarjeta-gris-oscura"
+          style="
+            width: 100%;
+            text-align: left;
+            font-family: 'Courier New', monospace;
+          "
+        >
+          <div class="titu">REGISTRO NEURONAL 📟</div>
+          <div
+            id="logs"
+            style="
+              color: #0f0;
+              height: 120px;
+              overflow-y: auto;
+              font-size: 0.85em;
+              padding: 5px;
+            "
+          >
+            > Inicializando Olympus v-10.01...<br />
+          </div>
         </div>
       </div>
     </div>
 
     <script src="../utilitarios.js"></script>
+    <script src="../menu.js"></script>
+
+    <script src="brain.js"></script>
+    <script src="IA.js"></script>
   </body>
 </html>
