@@ -8,34 +8,19 @@
   </head>
   <body>
     <div class="cajaPrincipal" id="miCajaPrincipal">
-      <h1 class="titulo-principal">PROYECTO OLYMPUS v-10.01 ⚡</h1>
+      <h1 class="titulo-principal">PROYECTO OLYMPUS v-02 ⚡</h1>
 
       <div class="contenedor-fila">
-        <div
-          class="tarjeta"
-          id="cajaMuestra"
-          style="
-            background-color: #000;
-            transition: 0.3s;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-          "
-        >
-          <div class="titu" style="color: inherit; border: none">
-            VISUALIZADOR
+        <div class="tarjeta" style="flex: 1">
+          <div class="titu" style="color: #333">VISUALIZADOR</div>
+
+          <div id="cajaMuestra" class="caja-visualizador">
+            <h2 id="textoMuestra" class="texto-visualizador">¿Se lee bien?</h2>
+            <p>La IA sugiere: <b id="prediccionIA">...</b></p>
           </div>
-          <h2 id="textoMuestra" style="color: white; font-size: 2em">
-            ¿Se lee bien?
-          </h2>
-          <p style="color: inherit; opacity: 0.8">
-            La IA cree que el texto debe ser: <b id="prediccionIA">...</b>
-          </p>
         </div>
 
-        <div class="tarjeta tarjeta-negra">
+        <div class="tarjeta tarjeta-negra" style="flex: 1">
           <div class="titu">PANEL DE ENTRENAMIENTO</div>
 
           <div class="cajatxt">
@@ -50,54 +35,39 @@
 
           <hr style="border-color: #444; margin: 20px 0" />
 
-          <p style="margin-bottom: 10px">
-            2. Enséñale a Olympus: <br />¿Qué color de texto queda mejor?
-          </p>
+          <p style="margin-bottom: 10px">2. Enséñale a Olympus:</p>
 
           <div
             class="cajaButton"
             style="display: flex; gap: 10px; justify-content: center"
           >
             <input
-              class="estiloBoton"
+              class="estiloBoton btn-entrenar btn-negro"
               type="button"
               value="TEXTO NEGRO"
               onclick="entrenar('negro')"
-              style="background: black; color: white; border: 1px solid #555"
             />
-
             <input
-              class="estiloBoton"
+              class="estiloBoton btn-entrenar btn-blanco"
               type="button"
               value="TEXTO BLANCO"
               onclick="entrenar('blanco')"
-              style="background: white; color: black"
             />
           </div>
         </div>
       </div>
 
       <div class="contenedor-fila">
-        <div
-          class="tarjeta tarjeta-gris-oscura"
-          style="
-            width: 100%;
-            text-align: left;
-            font-family: 'Courier New', monospace;
-          "
-        >
+        <div class="tarjeta tarjeta-gris-oscura caja-logs">
           <div class="titu">REGISTRO NEURONAL 📟</div>
-          <div
-            id="logs"
-            style="
-              color: #0f0;
-              height: 120px;
-              overflow-y: auto;
-              font-size: 0.85em;
-              padding: 5px;
-            "
-          >
-            > Inicializando Olympus v-10.01...<br />
+          <div id="logs" class="log-output">
+            > Inicializando Memoria Olympus...<br />
+          </div>
+
+          <div style="text-align: center">
+            <button class="btn-reset" onclick="resetearCerebro()">
+              ⚠️ RESETEAR CEREBRO
+            </button>
           </div>
         </div>
       </div>
@@ -105,7 +75,6 @@
 
     <script src="../utilitarios.js"></script>
     <script src="../menu.js"></script>
-
     <script src="brain.js"></script>
     <script src="IA.js"></script>
   </body>

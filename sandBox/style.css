@@ -528,3 +528,82 @@ canvas {
     /* Intenta cargar el pincel. Si falla, usa la cruz (crosshair) */
     cursor: url('img/pincel.png') 0 24, crosshair; 
 }
+
+/* =========================================
+   ESTILOS ESPECÍFICOS PARA LA IA (Olympus)
+   ========================================= */
+
+/* 1. La Caja que cambia de color */
+.caja-visualizador {
+    background-color: #000;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 300px;  /* <-- Antes era 200px. Prueba con 300px o 350px */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+}
+
+/* ... resto de estilos ... */
+.texto-visualizador {
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+/* 2. Botones de Entrenamiento (Blanco y Negro) */
+.btn-entrenar {
+    min-width: 120px;
+    font-weight: bold;
+}
+
+.btn-negro {
+    background-color: black;
+    color: white;
+    border: 1px solid #444;
+}
+
+.btn-blanco {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+}
+
+/* 3. Consola de Logs (Estilo Hacker) */
+.caja-logs {
+    width: 100%;
+    text-align: left;
+    font-family: 'Courier New', monospace; /* Fuente de código */
+}
+
+.log-output {
+    background-color: #0a0a0a; /* Fondo casi negro */
+    color: #00ff00; /* Verde matrix */
+    height: 120px;
+    overflow-y: auto; /* Barra de desplazamiento si se llena */
+    font-size: 0.85em;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+}
+
+/* 4. Botón de Resetear (Peligro) */
+.btn-reset {
+    background: transparent;
+    border: 1px solid #ff4444;
+    color: #ff4444;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.8em;
+    margin-top: 15px;
+    transition: all 0.2s;
+}
+
+.btn-reset:hover {
+    background-color: rgba(255, 68, 68, 0.1);
+    transform: scale(1.05);
+}
