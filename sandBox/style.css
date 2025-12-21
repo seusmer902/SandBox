@@ -2,12 +2,71 @@
 
 /* Reset básico para que se vea bien en todos lados */
 body {
-    background-color: #eef2f3; /* Color inicial suave */
-    font-family: 'Segoe UI', sans-serif; /* Fuente moderna */
+    background-color: #eef2f3; /* Tu color de fondo */
+    font-family: 'Segoe UI', sans-serif;
+    
+    /* ESTO ES LO QUE ARREGLA LA POSICIÓN: */
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* <--- ¡ESTO PONE UNO ARRIBA DEL OTRO! */
+    align-items: center;    /* <--- ¡ESTO CENTRA TODO HORIZONTALMENTE! */
+    
     padding: 20px;
-    transition: background-color 0.5s; /* Animación suave al cambiar color */
+    min-height: 100vh; /* Asegura que ocupe toda la altura */
+}
+
+/* --- MENÚ TIPO "CÁPSULA DE MANDO" --- */
+.menu-principal {
+    /* Dimensiones y posición */
+    width: fit-content; /* El ancho se ajusta a los botones, no a la pantalla */
+    margin-bottom: 30px; /* Empuja la caja principal hacia abajo */
+    padding: 10px 20px;
+    
+    /* Estilo visual (Bloque flotante) */
+    background-color: #1a1a1d; /* Bloque oscuro */
+    border-radius: 50px;       /* Bordes totalmente redondos (Cápsula) */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Sombra para que flote */
+    border: 2px solid #333;    /* Borde sutil */
+
+    /* Acomodar el logo y los botones adentro */
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Separación entre el logo y los links */
+}
+
+.logo {
+    /* Logo Circular */
+    font-size: 1.2em; font-weight: bold; color: white;
+    background: #c3073f;
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    font-family: monospace;
+}
+
+.enlaces {
+    display: flex;
+    gap: 10px; /* Espacio entre botones */
+}
+
+.boton-nav {
+    text-decoration: none;
+    color: #bbb;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 25px; /* Botones redondos */
+    transition: 0.3s;
+}
+
+.boton-nav:hover {
+    background-color: #333;
+    color: white;
+}
+
+/* El botón activo se ve sólido */
+.boton-nav.activo {
+    background-color: #c3073f;
+    color: white;
+    box-shadow: 0 4px 10px rgba(195, 7, 63, 0.4);
 }
 
 /* El Contenedor Principal */
